@@ -41,6 +41,11 @@ c) Rata-rata nilai UAS dari semua mahasiswa menggunakan Brute Force!
 ---
 
 ## Percobaan 1
+[**Faktorial07.java**](minggu5/BruteForceDivideConquer/Faktorial07.java)  
+[**MainFaktorial07.java**](minggu5/BruteForceDivideConquer/MainFaktorial07.java)   
+Screenshot output:  
+![Output Percobaan 1](P1_Output.png)  
+
 
 [Kembali ke #Daftar_Percobaan](#daftar_percobaan-1)
 
@@ -53,6 +58,24 @@ c) Rata-rata nilai UAS dari semua mahasiswa menggunakan Brute Force!
 [Kembali ke #Daftar_Percobaan](#daftar_percobaan-1)
 
 ### Jawaban
+1. perbedaan fungsional if dan else pada algoritma Divide Conquer :
+   - **if (n == 1)** adalah base case/kondisi dasar yang menghentikan rekursi. Ketika n bernilai 1, fungsi langsung mengembalikan nilai 1 tanpa melakukan panggilan rekursif lagi.  
+   - **else** adalah recursive case yang memanggil fungsi itu sendiri lagi dengan parameter yang lebih kecil (n-1), yang mendekati base case. fungsi akan terus memanggil dirinya sendiri secara terus menerus tanpa henti (infinite recursion) dan menyebabkan stack overflow error **jika** fungsi rekursif tidak diberi base case/batas bawah.
+
+2.  
+
+3. Perbedaan antara `fakto *= i;` dan `int fakto = n * faktorialDC(n-1);`:  
+   - **`fakto *= i;`** adalah operasi assignment dalam iterasi perulangan. Variabel fakto diperbarui dengan mengkalikan nilai sebelumnya dengan i secara berulang dalam satu loop. Ini adalah pendekatan iteratif yang mengakumulasi hasil secara langsung.  
+   - **`int fakto = n * faktorialDC(n-1);`** adalah pemanggilan rekursif. Fungsi memanggil dirinya sendiri dengan parameter yang lebih kecil, dan hasilnya dikalikan dengan n. Setiap pemanggilan membuat frame baru di call stack sampai mencapai base case.
+
+4. **Kesimpulan perbedaan cara kerja method `faktorialBF()` dan `faktorialDC()`:**  
+   
+   | Aspek | faktorialBF() | faktorialDC() |
+   |-------|---------------|---------------|
+   | Pendekatan | Iteratif | Rekursif |
+   | Cara Kerja | Menggunakan perulangan untuk mengkalikan nilai 1 sampai n secara berurutan | Memecah masalah menjadi beberapa masalah kecil dengan memanggil fungsi itu sendiri |
+   | Kode | Lebih sederhana dan mudah dipahami untuk kasus sederhana | Sedikit lebih kompleks, tapi lebih cocok untuk masalah yang kompleks |
+   | Base Case | Tidak diperlukan (loop berhenti saat kondisi tidak terpenuhi) | Diperlukan untuk menghentikan rekursi |
 
 
 [Kembali ke #Daftar_Percobaan](#daftar_percobaan-1)
