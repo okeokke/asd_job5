@@ -1,4 +1,4 @@
-package asd_job5.minggu5.BruteForceDivideConquer;
+package asd_job5.BruteForceDivideConquer.minggu5;
 public class Faktorial07 {
 
   int faktorialBF (int n) {
