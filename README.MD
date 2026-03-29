@@ -41,8 +41,8 @@ c) Rata-rata nilai UAS dari semua mahasiswa menggunakan Brute Force!
 ---
 
 ## Percobaan 1
-[**Faktorial07.java**](minggu5/BruteForceDivideConquer/Faktorial07.java)  
-[**MainFaktorial07.java**](minggu5/BruteForceDivideConquer/MainFaktorial07.java)   
+[**Faktorial07.java**](BruteForceDivideConquer/minggu5/Faktorial07.java)  
+[**MainFaktorial07.java**](BruteForceDivideConquer/minggu5/MainFaktorial07.java)   
 Screenshot output:  
 ![Output Percobaan 1](P1_Output.png)  
 
@@ -63,8 +63,8 @@ Screenshot output:
    - **else** adalah recursive case yang memanggil fungsi itu sendiri lagi dengan parameter yang lebih kecil (n-1), yang mendekati base case. fungsi akan terus memanggil dirinya sendiri secara terus menerus tanpa henti (infinite recursion) dan menyebabkan stack overflow error **jika** fungsi rekursif tidak diberi base case/batas bawah.
 
 2.  Ya, dapat diubah menggunakan while loop atau do-while loop. Seperti ini:    
-    [**Faktorial07Modif.java**](minggu5/BruteForceDivideConquer/Faktorial07Modif.java)   
-    [**MainFaktorial07Modif.java**](minggu5/BruteForceDivideConquer/MainFaktorial07Modif.java)   
+    [**Faktorial07Modif.java**](BruteForceDivideConquer/minggu5/Faktorial07Modif.java)   
+    [**MainFaktorial07Modif.java**](BruteForceDivideConquer/minggu5/MainFaktorial07Modif.java)   
     ![Output hasil soal no.2 Percobaan 1](P1_Output_2.png)  
 
 ```java
