@@ -110,6 +110,10 @@ int faktorialBFdowhile(int n) {
 ---
 
 ## Percobaan 2
+[**Pangkat07.java**](BruteForceDivideConquer/minggu5/Pangkat07.java)  
+[**MainPangkat07.java**](BruteForceDivideConquer/minggu5/MainPangkat07.java)   
+Screenshot output:  
+![Output Percobaan 2](P2_Output.png) 
 
 [Kembali ke #Daftar_Percobaan](#daftar_percobaan-1)
 
@@ -122,6 +126,52 @@ int faktorialBFdowhile(int n) {
 [Kembali ke #Daftar_Percobaan](#daftar_percobaan-1)
 
 ### Jawaban   
+1. Perbedaan method `pangkatBF()` dan `pangkatDC()`:  
+   
+   | Aspek | pangkatBF() | pangkatDC() |
+   |-------|-------------|-------------|
+   | Pendekatan | Iteratif/Berulang (Brute Force) | Rekursif (Divide and Conquer) |
+   | Cara Kerja | Mengalikan bilangan dengan dirinya sendiri secara berulang n kali | Membagi pangkat menjadi setengah, menghitung secara rekursif, lalu menggabungkan hasil |
+   | Kompleksitas Waktu dan Use Case | O(n) - linier sesuai jumlah perulangan, lebih cocok untuk pangkat kecil | O(log n) - logaritmik, lebih cocok untuk pangkat besar. |
+
+2. Ya, tahap combine sudah termasuk dalam kode method `pangkatDC()` pada bagian berikut:  
+```java
+if (n%2==1) { <- ganjl
+        return (pangkatDC(a, n/2) * pangkatDC(a, n/2) * a); <- menggabungkan hasil
+      } else { <- genap
+        return (pangkatDC(a, n/2) * pangkatDC(a, n/2)); <- menggabungkan hasil
+      }
+```
+Tahap combine terjadi saat hasil dari pemanggilan rekursif `pangkatDC(a, n/2)` dikalikan satu sama lain (dan dengan a jika pangkat ganjil) untuk menghasilkan nilai akhir.
+
+3. Menurut pendapat saya, method dengan parameter tetap relevan karena memberikan fleksibilitas lebih. Namun, method tanpa parameter juga bisa dibuat jika sudah ada atribut nilai dan pangkat di class. contoh method `pangkatBF()` tanpa parameter bisa dibuat seperti ini:  
+```java
+int pangkatBF(){
+  int hasil=1;
+  for (int i=0; i<this.pangkat; i++) {
+      hasil=hasil*this.nilai;
+  }
+  return hasil;
+}
+```
+Kelebihan dengan parameter: fleksibel, bisa menghitung pangkat berapapun tanpa mengubah atribut.  
+Kelebihan tanpa parameter: lebih sederhana, langsung menggunakan atribut yang sudah diatur.
+
+4. **Kesimpulan cara kerja method `pangkatBF()` dan `pangkatDC()`:**  
+   
+   **pangkatBF() - Brute Force:**
+   - Menggunakan pendekatan iteratif/berulang langsung yang dilakukan sebanyak n kali
+   - Misal: 2³ = 2 × 2 × 2 = 8 (3 kali perkalian)
+   - Sederhana dan mudah dipahami
+   - Kompleksitas: O(n)
+   
+   **pangkatDC() - Divide and Conquer:**
+   - Menggunakan pendekatan rekursif dengan membagi masalah
+   - Memecah pangkat menjadi setengah: a^n = a^(n/2) × a^(n/2)
+   - Misal: 2⁸ = 2⁴ × 2⁴ = (2² × 2²) × (2² × 2²) = ... (hanya 3 kali perkalian)
+   - Untuk pangkat ganjil: a^n = a^(n/2) × a^(n/2) × a
+   - Lebih efisien untuk pangkat besar
+   - Kompleksitas: O(log n)
 
 
 [Kembali ke #Daftar_Percobaan](#daftar_percobaan-1)
