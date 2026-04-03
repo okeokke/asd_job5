@@ -178,7 +178,12 @@ Kelebihan tanpa parameter: lebih sederhana, langsung menggunakan atribut yang su
 
 ---
 
-## Percobaan 3
+## Percobaan 3   
+[**Sum07.java**](BruteForceDivideConquer/minggu5/Sum07.java)  
+[**MainSum07.java**](BruteForceDivideConquer/minggu5/MainSum07.java)  
+Screenshot output:  
+![Output Percobaan 3](P3_Output.png)  
+
 
 [Kembali ke #Daftar_Percobaan](#daftar_percobaan-1)
 
@@ -199,6 +204,56 @@ return lsum + rsum;
 [Kembali ke #Daftar_Percobaan](#daftar_percobaan-1)
 
 ### Jawaban
+1. Variable `mid` dibutuhkan untuk membagi array menjadi dua bagian yang sama besar (atau hampir sama). Ini adalah tahap **Divide** dalam algoritma Divide and Conquer, dari titik tengah (mid), array bisa dibagi menjadi:  
+   - Bagian kiri : dari indeks `l` (left) sampai `mid`
+   - Bagian kanan : dari indeks `mid + 1` sampai `r` (right). 
+
+   Tanpa variable `mid`, titik pembagian array tidak bisa ditentukan dengan tepat.
+
+2. 
+   - `int mid = (l + r) / 2;` - Menghitung indeks tengah dari array sebagai titik pembagian (tahap **Divide**)
+   - `double lsum = totalDC(arr, l, mid);` - Memanggil fungsi rekursif untuk menghitung total elemen pada bagian kiri/paruh awal array (dari indeks `l` sampai mid)
+   - `double rsum = totalDC(arr, mid + 1, r);` - Memanggil fungsi rekursif untuk menghitung total elemen pada bagian kanan/paruh akhir array (dari indeks mid+1 sampai `r`)
+   kedua baris ini adalah tahap **Conquer** (menyelesaikan sub-masalah secara rekursif).
+
+3. Penjumlahan `lsum + rsum` adalah tahap **Combine**, tahap terakhir dalam Divide and Conquer, hasil dari kedua bagian yang tadinya dipisah pada divide and conquer harus digabungkan lagi untuk mendapatkan total keseluruhan array. Hasil akhir array tidak akan lengkap/tercapai jika tidak melakukan langkah terakhir ini. 
+
+4. Base case `totalDC()` :
+```java
+if (l == r) {
+    return arr[l];
+}
+```
+   Ketika indeks kiri (`l`) sama dengan indeks kanan (`r`), berarti array sudah tidak bisa dibagi lagi (sisa satu elemen). Pada kondisi ini, fungsi mengembalikan nilai elemen tanpa melakukan pembagian lagi, dan kondisi henti/akhir rekursi terpenuhi.
+
+5. Kesimpulan cara kerja `totalDC()`:  
+   Tahap Divide:
+   - Array dibagi menjadi dua bagian di titik tengah (mid)
+   - Bagian kiri/paruh awal : indeks l sampai mid
+   - Bagian kanan/paruh akhir : indeks mid+1 sampai r  
+   
+   Tahap Conquer:
+   - Setiap bagian diproses secara rekursif dengan memanggil `totalDC()` lagi
+   - Pembagian terus dilakukan sampai mencapai base case (l == r)
+   - Pada base case, nilai elemen tunggal dikembalikan  
+   
+   Tahap Combine:
+   - Hasil dari bagian kiri (lsum) dan bagian kanan (rsum) dijumlahkan
+   - Nilai total dikembalikan ke level rekursi sebelumnya
+   
+   Contoh ilustrasi:
+   ```
+   Array: [10, 20, 30, 40]
+   
+   Divide: [10, 20] | [30, 40]
+   
+   Divide lagi: [10] | [20] | [30] | [40]
+   
+   Base case: return 10, 20, 30, 40
+   
+   Combine: (10+20) + (30+40) = 30 + 70 = 100
+   ```
+
 
 
 [Kembali ke #Daftar_Percobaan](#daftar_percobaan-1)
