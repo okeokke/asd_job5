@@ -4,8 +4,8 @@
 # [Daftar_Percobaan](#daftar_percobaan-1)  
 
 # TUGAS  
-### TUGAS_1    
-Soal :  
+## Latihan Praktikum    
+### Soal :  
 Sebuah kampus memiliki daftar nilai mahasiswa dengan data sesuai tabel berikut:
 
 | Nama |     NIM      | Tahun Masuk | UTS | UAS |
@@ -23,6 +23,14 @@ Tentukan:
 a) Nilai UTS tertinggi menggunakan Divide and Conquer!  
 b) Nilai UTS terendah menggunakan Divide and Conquer!  
 c) Rata-rata nilai UAS dari semua mahasiswa menggunakan Brute Force!
+
+### Jawaban :   
+[**Mahaiswa07.java**](BruteForceDivideConquer/minggu5/Mahasiswa07.java)  
+[**NilaiMahaiswa07.java**](BruteForceDivideConquer/minggu5/NilaiMahasiswa07.java)  
+[**MainMahaiswa07.java**](BruteForceDivideConquer/minggu5/MainMahasiswa07.java)  
+Screenshot Output :   
+![Latihan Output ](Latihan_Output.png)
+
 
 
 ---  
